@@ -1,0 +1,23 @@
+name: Typst Compile when push
+
+on:
+  push:
+    branch-ignore:
+      - nobuild*
+
+jobs:
+  PushBuild:
+    name: PushBuild
+    runs-on: self-hosted
+    steps:
+      - name: Set up Git repo
+        uses: actions/checkout@v2
+      - name: compile typst
+        run: typst --font-path ~/.fonts *.typst
+      - name: Upload PDF artifact
+        id: artifact-upload-step
+        uses: actions/upload-artifact@v4
+        with:
+          name: main
+          path: ./main.pdf
+          retention-days: 7
