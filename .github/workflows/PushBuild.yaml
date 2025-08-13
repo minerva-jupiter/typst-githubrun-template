@@ -13,11 +13,10 @@ jobs:
       - name: Set up Git repo
         uses: actions/checkout@v2
       - name: compile typst
-        run: typst --font-path ~/.fonts *.typst
+        run: typst --font-path ~/.fonts *.typ
       - name: Upload PDF artifact
         id: artifact-upload-step
         uses: actions/upload-artifact@v4
         with:
-          name: main
-          path: ./main.pdf
+          path: ./*.pdf
           retention-days: 7
