@@ -1,10 +1,7 @@
-#set text(lang: "ja", font: "Noto Sans JP")
+#set text(lang: "ja", font: "Noto Sans CJK JP")
 #set par(leading: 1.5em)
 #set page(numbering: "- 1 -",header: "物理学概論14回課題")
 
-= ビオ・サバールについて
-== 学籍番号:S241033  氏名: 林 諒太
-\
 
 一般に、誤解されているが、ビオ・サバールの法則は、ジャン・バティスタ・ビオとフェリックス・サバールの両者が共同で実験して発見した法則である。
 まず、ジャン・バティスタ・ビオについて解説する。
