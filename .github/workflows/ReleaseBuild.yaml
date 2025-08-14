@@ -1,4 +1,4 @@
-name: Typst Compile when push
+name: Typst Compile when version released
 
 on:
   push:
@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Download fonts to ./fonts
-        run: mkdir fonts && cd fonts && wget "https://github.com/googlefonts/noto-cjk/raw/main/Sans/Variable/TTF/NotoSansCJKjp-VF.ttf" && cd
+        run: mkdir fonts && cd fonts && curl -L -o NotoSansJP-Regular.otf https://github.com/googlefonts/noto-cjk/raw/main/Sans/OTF/Japanese/NotoSansCJKjp-Regular.otf && cd
       - name: Set up Git repo
         uses: actions/checkout@v2
       - name: compile typst with docker
