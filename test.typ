@@ -1,4 +1,4 @@
-#set text(lang: "ja", font: "Noto Sans CJK JP")
+#set text(lang: "ja", font: "Noto Sans JP")
 #set par(leading: 1.5em)
 #set page(numbering: "- 1 -",header: "物理学概論14回課題")
 

@@ -15,3 +15,10 @@ This repository provides a template for a GitHub Action that automates the proce
 
 # LICENSE 
 I provide this with MIT LICENSE.
+
+# Adding Font
+If you want to use additional fonts, you can set up it.
+## On Self hosted runner
+Only you have to do is that download font and put it in ~/.fonts/
+## On Github Runner
+You have to add code of font download to workflows file.
