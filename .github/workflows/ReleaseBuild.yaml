@@ -1,0 +1,27 @@
+name: Typst Compile when push
+
+on:
+  push:
+    tags:
+      - '*.*.*'
+
+jobs:
+  PushBuild:
+    name: PushBuild
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download fonts to ./fonts
+        run: mkdir fonts && cd fonts && wget "https://github.com/googlefonts/noto-cjk/raw/main/Sans/Variable/TTF/NotoSansCJKjp-VF.ttf" && cd
+      - name: Set up Git repo
+        uses: actions/checkout@v2
+      - name: compile typst with docker
+        run: sudo docker run --rm --volume ./:/home/ ghcr.io/typst/typst:latest compile --font-path /home/fonts /home/test.typ
+      - name: Create Release & upload asset
+        id: create_release-upload_assets
+        uses: softprops/action-gh-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          files: ./*.pdf
+          draft: true
+          prerelease: false
