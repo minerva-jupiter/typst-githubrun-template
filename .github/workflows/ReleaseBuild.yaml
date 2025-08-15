@@ -10,10 +10,10 @@ jobs:
     name: PushBuild
     runs-on: ubuntu-latest
     steps:
-      - name: Download fonts to ./fonts
-        run: mkdir fonts && cd fonts && curl -L -o NotoSansJP-Regular.otf https://github.com/googlefonts/noto-cjk/raw/main/Sans/OTF/Japanese/NotoSansCJKjp-Regular.otf && cd .. && tree .
       - name: Set up Git repo
         uses: actions/checkout@v2
+      - name: Download fonts to ./fonts
+        run: mkdir fonts && cd fonts && curl -L -o NotoSansJP-Regular.otf https://github.com/googlefonts/noto-cjk/raw/main/Sans/OTF/Japanese/NotoSansCJKjp-Regular.otf && cd .. && tree .
       - name: compile typst with docker
         run: sudo docker run --rm --volume ./:/home/ ghcr.io/typst/typst:latest compile --font-path /home/fonts /home/test.typ
       - name: Create Release & upload asset
